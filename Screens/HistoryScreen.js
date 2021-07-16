@@ -11,12 +11,12 @@ function HistoryScreen() {
       quantity: 10,
     },
     {
-      name: "temp",
+      name: "temp1",
       price: 12345,
       quantity: 12,
     },
     {
-      name: "temp",
+      name: "temp2",
       price: 12345,
       quantity: 12,
     },
@@ -28,12 +28,17 @@ function HistoryScreen() {
       quantity: 10,
     },
     {
-      name: "temp",
+      name: "temp3",
       price: 12345,
       quantity: 12,
     },
     {
-      name: "temp",
+      name: "temp4",
+      price: 12345,
+      quantity: 12,
+    },
+    {
+      name: "temp5",
       price: 12345,
       quantity: 12,
     },

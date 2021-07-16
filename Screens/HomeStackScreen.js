@@ -16,6 +16,7 @@ function HomeStackScreen() {
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Trade" component={TradeScreen} />
       <Stack.Screen name="Trade2" component={Trade2Screen} />
+      <Stack.Screen name="Trade3" component={Trade3Screen} />
     </Stack.Navigator>
   );
 }
@@ -99,7 +100,7 @@ function SearchScreen({ navigation }) {
           <Icon style={{ fontSize: 20, margin: 15 }} name={"search"} />
         </View>
         <View style={[styles.contentContainer, { top: -25, paddingVertical: 10 }]}>
-          {/*검색 기록 리스트 생성 최대 10개 정도 까지 제한할 예정*/}
+          {/*검색 기록 리스트 생성 최대 10개 정도 까지 제한할 예정 각 종목으로 navigation 기능*/}
           {searchHistory.map((obj, index) => {
             if (index == 0) {
               return (
@@ -154,7 +155,9 @@ function TradeScreen({ navigation }) {
               <Text style={{fontSize:26, fontWeight:"bold"}}>매도</Text>
             </TouchableOpacity>
             <View style={{ width: 5, marginVertical: 15, backgroundColor: "#c4c4c4" }} />
-            <TouchableOpacity style={{flex: 1, alignItems:"center", justifyContent:"center"}}>
+            <TouchableOpacity style={{flex: 1, alignItems:"center", justifyContent:"center"}}onPress={()=>{
+              navigation.navigate('Trade3');
+            }}>
               <Text style={{fontSize:26, fontWeight:"bold"}}>매수</Text>
             </TouchableOpacity>
           </View>
@@ -181,6 +184,36 @@ function Trade2Screen({ navigation }) {
             <Text style={{fontSize: 32, fontWeight: "bold", color:"#2ecc71"}}>90,000 에</Text>
             <Text style={{fontSize: 32, fontWeight: "bold", color:"#bebebe"}}>수량 + = 개</Text>
             <Text style={{fontSize: 32, fontWeight: "bold", color:"black"}}>판매합니다.</Text>
+          </View>
+          <TouchableOpacity style={{ alignSelf:"flex-end", width: 120, height: 50, backgroundColor:"#e0e0e0", margin: 10, borderRadius: 10, alignItems:"center", justifyContent:"center"}}
+            onPress={() => {
+              ToastAndroid.show("거래가 요청되었습니다", ToastAndroid.SHORT);
+            }}>
+            <Text style={{fontSize: 16}}>판매</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+}
+function Trade3Screen({ navigation }) {
+  const item = ["삼성전자", "90000", "91200", true]; //서버에서 받아올 데이터
+  const itemP = item[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); //자릿수 나누기
+  return (
+    <View style={styles.container}>
+      <View style={{ marginTop:30, flexDirection: "row", alignItems: "center"}}>
+        <Text style={[styles.boxTitle,{marginTop:0, fontSize:50, flex: 1 }]}>{item[0]}</Text>
+      </View>
+        <Text style={[styles.boxTitle, {marginTop: 0, color:"black", fontSize: 32}]}>{itemP} 원</Text>
+      <View style={styles.boxContainer}>
+        <View style={[styles.contentContainer, { flex: 1, marginVertical:40}]}>
+          <TouchableOpacity style={{ margin: 10, marginTop:30, borderRadius: 10}}>
+            <Text style={{fontSize: 32, fontWeight: "bold"}}>시장가</Text>
+          </TouchableOpacity>
+          <View style={{marginHorizontal: 15, flex: 1}}>
+            <Text style={{fontSize: 32, fontWeight: "bold", color:"#2ecc71"}}>90,000 에</Text>
+            <Text style={{fontSize: 32, fontWeight: "bold", color:"#bebebe"}}>수량 + = 개</Text>
+            <Text style={{fontSize: 32, fontWeight: "bold", color:"black"}}>구매합니다.</Text>
           </View>
           <TouchableOpacity style={{ alignSelf:"flex-end", width: 120, height: 50, backgroundColor:"#e0e0e0", margin: 10, borderRadius: 10, alignItems:"center", justifyContent:"center"}}
             onPress={() => {

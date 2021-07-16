@@ -40,7 +40,13 @@ function InfoScreen() {
       nowPrice: 95000
     },
     {
-      name: "stock22",
+      name: "stock2",
+      avrgPrice: 75000,
+      quantity: 30,
+      nowPrice: 100000
+    },
+    {
+      name: "stock3",
       avrgPrice: 75000,
       quantity: 30,
       nowPrice: 100000
@@ -117,7 +123,7 @@ function LoginScreen() {
           <View style={[styles.alignCenter, styles.iconBack]}>
             <Icon name={"key"} size={20} color={"gray"}></Icon>
           </View>
-          <TextInput style={styles.textInput} placeholder="Password" secureTextEntry={true} onChangeText={(password) => {
+          <TextInput style={[styles.textInput]} placeholder="Password" secureTextEntry={true} onChangeText={(password) => {
             //PW 입력
           }} />
         </View>
@@ -198,7 +204,7 @@ const styles = StyleSheet.create({
   inputBox: {
     backgroundColor: 'white',
     width: "60%",
-    height: 40,
+    height: 45,
     borderRadius: 5,
     borderColor: "lightgray",
     borderWidth: 1,
