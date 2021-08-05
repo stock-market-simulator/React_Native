@@ -4,6 +4,9 @@ import { } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+
+import KakaoLogins from "@react-native-seoul/kakao-login";
 //import { TapGestureHandler } from 'react-native-gesture-handler';
 
 //각 화면
@@ -12,7 +15,10 @@ import HistoryScreen from './Screens/HistoryScreen';
 import InfoStackScreen from './Screens/InfoStackScreen';
 import SettingScreen from './Screens/SettingScreen';
 
+
 const Tab = createBottomTabNavigator();
+
+
 
 const App = () => {
   return (

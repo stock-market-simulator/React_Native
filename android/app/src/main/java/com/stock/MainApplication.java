@@ -12,6 +12,15 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+// import android.content.pm.PackageInfo;
+// import android.content.pm.PackageManager;
+// import android.content.pm.Signature;
+// import android.util.Base64;
+// import android.util.Log;
+
+// import java.security.MessageDigest;
+// import java.security.NoSuchAlgorithmException;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
